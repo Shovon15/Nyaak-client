@@ -5,16 +5,12 @@ import { useRef, useState, useEffect } from "react";
 import SliderCard from "./Card";
 import "./slider-card.css";
 import Sliderheader from "./Sliderheader";
+import { IProductItem } from "@/app/constant/types";
 // import { ChevronLeft, ChevronRight } from "lucide-react"
 // import { cn } from "@/lib/utils"
 
 type SliderProps = {
-  data: Array<{
-    id: string;
-    title: string;
-    description: string;
-    image: string;
-  }>;
+  data: IProductItem[];
   title?: string;
   className?: string;
 };
@@ -108,7 +104,7 @@ export default function Slider({ data, title, className }: SliderProps) {
         onMouseUp={() => setIsDragging(false)}
         onMouseLeave={() => setIsDragging(false)}
       >
-        {data.map((item) => (
+        {data.map((item: IProductItem) => (
           <div
             key={item.id}
             className="flex-shrink-1 w-[250px] sm:w-[250px] md:w-[300px] h-full min-h-[400px]"
